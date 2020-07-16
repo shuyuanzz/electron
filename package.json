@@ -1,29 +1,60 @@
 {
   "name": "electron",
-  "productName": "ElectronWebView",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "electron/main.js",
   "scripts": {
-    "package": "electron-builder build --mac --win -c.extraMetadata.main=electron/main.js --publish never"
+    "package": "electron-builder build --mac --win -c.extraMetadata.main=electron/main.js --publish never",
+    "dev": "electron ."
   },
   "build": {
-		"files": [
-			"electron/*"
-		],
-		"publish": {
-			"provider": "github",
-			"repo": "electron-cra-example",
-			"owner": "johndyer24"
-		}
-	},
-  "author": "",
+    "productName": "test",
+    "appId": "Personal.DesktopApp.Startkit.1.0.0",
+    "copyright": "Copyright © 2020 ${author}",
+    "directories": {
+      "output": "build"
+    },
+    "asar": true,
+    "artifactName": "${productName}-${version}.${ext}",
+    "compression": "maximum",
+    "files": [
+      "electron/main.js"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "icons/icon.jpg"
+    },
+    "win": {
+      "icon": "icons/icon.jpg",
+      "target": "nsis",
+      "legalTrademarks": "Eyas Personal"
+    },
+    "linux": {
+      "icon": "icons/icon.jpg"
+    },
+    "electronDownload": {
+      "mirror": "http://npm.taobao.org/mirrors/electron/"
+    }
+  },
+  "author": "shuyuan",
   "license": "ISC",
-  "dependencies": {
-	},
-	"devDependencies": {
-		"electron": "^9.1.0",
-		"electron-builder": "^22.7.0"
-	}
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^9.1.0",
+    "electron-builder": "^22.7.0"
+  }
 }
-
