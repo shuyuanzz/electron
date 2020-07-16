@@ -1,0 +1,29 @@
+{
+  "name": "electron",
+  "productName": "ElectronWebView",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "package": "electron-builder build --mac --win -c.extraMetadata.main=electron/main.js --publish never"
+  },
+  "build": {
+		"files": [
+			"electron/*"
+		],
+		"publish": {
+			"provider": "github",
+			"repo": "electron-cra-example",
+			"owner": "johndyer24"
+		}
+	},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+	},
+	"devDependencies": {
+		"electron": "^9.1.0",
+		"electron-builder": "^22.7.0"
+	}
+}
+
